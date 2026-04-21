@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fundacja Instytut Badawczo-Edukacyjny Meritum — Premium</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            300: '#E6C97A',
+                            400: '#D4AF37',
+                            500: '#C5A059',
+                            600: '#AA8542',
+                            700: '#8B6A2E',
+                        },
+                        slate: {
+                            850: '#151e2e',
+                            925: '#0A1222',
+                            950: '#020617',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <script>
+        (() => {
+            const storageKey = 'meritum-theme';
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            let theme = prefersDark ? 'dark' : 'light';
+
+            try {
+                const saved = localStorage.getItem(storageKey);
+                if (saved === 'dark' || saved === 'light') {
+                    theme = saved;
+                }
+            } catch (error) {
+                // no-op
+            }
+
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <style>
+        :root {
+            --premium-glow: 0 0 40px rgba(212, 175, 55, 0.25);
+            --glass-bg: linear-gradient(140deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+            --page-bg: #020617;
+            --text-main: #f8fafc;
+            --text-soft: #cbd5e1;
+            --surface-1: #020617;
+            --surface-2: #0f172a;
+            --surface-3: #151e2e;
+            --border-soft: rgba(51, 65, 85, 0.7);
+            --nav-bg: rgba(2, 6, 23, 0.72);
+            --nav-border: rgba(30, 41, 59, 0.7);
+            --partner-bg: rgba(15, 23, 42, 0.68);
+            --partner-border: rgba(100, 116, 139, 0.28);
+            --hero-overlay: linear-gradient(190deg, rgba(2, 6, 23, 0.08), rgba(2, 6, 23, 0.65));
+            --selection-bg: #c5a059;
+            --selection-text: #020617;
+        }
+
+        :root[data-theme='light'] {
+            --premium-glow: 0 0 34px rgba(212, 175, 55, 0.22);
+            --glass-bg: linear-gradient(140deg, rgba(255, 255, 255, 0.88), rgba(241, 245, 249, 0.72));
+            --page-bg: #f8fafc;
+            --text-main: #0f172a;
+            --text-soft: #334155;
+            --surface-1: #f8fafc;
+            --surface-2: #eef2ff;
+            --surface-3: #e2e8f0;
+            --border-soft: rgba(148, 163, 184, 0.58);
+            --nav-bg: rgba(248, 250, 252, 0.88);
+            --nav-border: rgba(148, 163, 184, 0.7);
+            --partner-bg: rgba(255, 255, 255, 0.82);
+            --partner-border: rgba(148, 163, 184, 0.5);
+            --hero-overlay: linear-gradient(190deg, rgba(248, 250, 252, 0.02), rgba(248, 250, 252, 0.46));
+            --selection-bg: #d4af37;
+            --selection-text: #0f172a;
+        }
+
+        body {
+            background-color: var(--page-bg) !important;
+            color: var(--text-main) !important;
+        }
+
+        ::selection {
+            background-color: var(--selection-bg);
+            color: var(--selection-text);
+        }
+
+        #mainNav {
+            background-color: var(--nav-bg) !important;
+            border-color: var(--nav-border) !important;
+        }
+
+        .aurora-bg {
+            background:
+                radial-gradient(circle at 8% 10%, rgba(197, 160, 89, 0.25), transparent 38%),
+                radial-gradient(circle at 92% 20%, rgba(79, 70, 229, 0.22), transparent 35%),
+                radial-gradient(circle at 80% 75%, rgba(20, 184, 166, 0.16), transparent 33%),
+                linear-gradient(140deg, #030712 0%, #0f172a 45%, #111827 100%);
+            background-size: 120% 120%;
+            animation: aurora 16s ease-in-out infinite alternate;
+        }
+
+        :root[data-theme='light'] .aurora-bg {
+            background:
+                radial-gradient(circle at 10% 12%, rgba(212, 175, 55, 0.2), transparent 42%),
+                radial-gradient(circle at 85% 16%, rgba(59, 130, 246, 0.16), transparent 36%),
+                radial-gradient(circle at 78% 72%, rgba(16, 185, 129, 0.14), transparent 34%),
+                linear-gradient(140deg, #f8fafc 0%, #eef2ff 48%, #e2e8f0 100%);
+        }
+
+        .noise-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.08;
+            background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.55) 1px, transparent 0);
+            background-size: 3px 3px;
+        }
+
+        :root[data-theme='light'] .noise-overlay::after {
+            opacity: 0.05;
+            background-image: radial-gradient(circle at 1px 1px, rgba(15, 23, 42, 0.2) 1px, transparent 0);
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+        }
+
+        :root[data-theme='light'] .glass-card {
+            border-color: rgba(148, 163, 184, 0.38);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translate3d(0, 28px, 0);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            transition-delay: var(--delay, 0ms);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .float-soft {
+            animation: floatSoft 7s ease-in-out infinite;
+        }
+
+        .float-soft-2 {
+            animation: floatSoft 9s ease-in-out infinite reverse;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 999px;
+            filter: blur(0px);
+            pointer-events: none;
+            mix-blend-mode: screen;
+            opacity: 0.5;
+            animation: orbMove 14s ease-in-out infinite alternate;
+        }
+
+        .orb-1 {
+            width: 260px;
+            height: 260px;
+            top: 12%;
+            right: 4%;
+            background: radial-gradient(circle at 30% 30%, rgba(230, 201, 122, 0.65), rgba(197, 160, 89, 0));
+        }
+
+        .orb-2 {
+            width: 360px;
+            height: 360px;
+            bottom: -8%;
+            left: -4%;
+            background: radial-gradient(circle at 40% 40%, rgba(56, 189, 248, 0.35), rgba(56, 189, 248, 0));
+            animation-delay: 2s;
+        }
+
+        .orb-3 {
+            width: 220px;
+            height: 220px;
+            top: 58%;
+            right: 28%;
+            background: radial-gradient(circle at 45% 45%, rgba(139, 92, 246, 0.34), rgba(139, 92, 246, 0));
+            animation-delay: 1.5s;
+        }
+
+        .premium-border {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .premium-border::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: inherit;
+            z-index: -1;
+            background: linear-gradient(130deg, rgba(230, 201, 122, 0.7), rgba(59, 130, 246, 0.2), rgba(230, 201, 122, 0.6));
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+
+        .premium-border:hover::before {
+            opacity: 1;
+        }
+
+        .hero-main {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-main img {
+            transition: transform 6s ease, filter 1s ease, opacity 0.5s ease;
+            transform: scale(1.04);
+        }
+
+        .hero-main:hover img {
+            transform: scale(1.1);
+        }
+
+        .hero-main::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--hero-overlay);
+        }
+
+        .hero-mini {
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .hero-mini.active,
+        .hero-mini:hover {
+            border-color: rgba(230, 201, 122, 0.9);
+            box-shadow: var(--premium-glow);
+            transform: translateY(-6px);
+        }
+
+        .kenburns {
+            animation: kenburns 18s ease-in-out infinite alternate;
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            gap: 1.25rem;
+            animation: marquee 24s linear infinite;
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        .partner-pill {
+            border: 1px solid var(--partner-border);
+            background: var(--partner-bg);
+            backdrop-filter: blur(12px);
+        }
+
+        :root[data-theme='light'] .hero-mini {
+            border-color: rgba(148, 163, 184, 0.58);
+        }
+
+        :root[data-theme='light'] .kpi-ring {
+            background: conic-gradient(rgba(212, 175, 55, 0.92) var(--progress), rgba(148, 163, 184, 0.4) var(--progress));
+        }
+
+        :root[data-theme='light'] .bg-slate-950,
+        :root[data-theme='light'] .bg-slate-950\/70 {
+            background-color: var(--surface-1) !important;
+        }
+
+        :root[data-theme='light'] .bg-slate-925,
+        :root[data-theme='light'] .bg-slate-925\/80,
+        :root[data-theme='light'] .bg-slate-900,
+        :root[data-theme='light'] .bg-slate-900\/60 {
+            background-color: var(--surface-2) !important;
+        }
+
+        :root[data-theme='light'] .border-slate-900,
+        :root[data-theme='light'] .border-slate-800,
+        :root[data-theme='light'] .border-slate-800\/70,
+        :root[data-theme='light'] .border-slate-700,
+        :root[data-theme='light'] .border-slate-700\/70,
+        :root[data-theme='light'] .border-slate-600 {
+            border-color: var(--border-soft) !important;
+        }
+
+        :root[data-theme='light'] .text-white,
+        :root[data-theme='light'] .text-slate-100,
+        :root[data-theme='light'] .text-slate-200 {
+            color: #0f172a !important;
+        }
+
+        :root[data-theme='light'] .text-slate-300,
+        :root[data-theme='light'] .text-slate-400,
+        :root[data-theme='light'] .text-slate-500 {
+            color: #334155 !important;
+        }
+
+        :root[data-theme='light'] .hover\:bg-slate-900:hover,
+        :root[data-theme='light'] .hover\:bg-slate-900\/60:hover {
+            background-color: rgba(226, 232, 240, 0.9) !important;
+        }
+
+        :root[data-theme='light'] .shadow-slate-950\/60,
+        :root[data-theme='light'] .shadow-slate-950\/35 {
+            --tw-shadow-color: rgba(148, 163, 184, 0.35) !important;
+        }
+
+        :root[data-theme='light'] #kontakt {
+            color: #1f2937;
+        }
+
+        .tilt-card {
+            transform-style: preserve-3d;
+            transition: transform 0.25s ease;
+            will-change: transform;
+        }
+
+        .kpi-ring {
+            background: conic-gradient(rgba(212, 175, 55, 0.9) var(--progress), rgba(51, 65, 85, 0.45) var(--progress));
+        }
+
+        .faq-item button[aria-expanded='true'] + div {
+            grid-template-rows: 1fr;
+            opacity: 1;
+        }
+
+        .faq-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            opacity: 0;
+            transition: grid-template-rows 0.35s ease, opacity 0.35s ease;
+        }
+
+        .faq-content > div {
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 0;
+            transition: width 1.6s cubic-bezier(0.2, 0.9, 0.2, 1);
+        }
+
+        .shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shimmer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 70%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+            transform: skewX(-16deg);
+            animation: shimmer 4.8s infinite;
+        }
+
+        @keyframes aurora {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes floatSoft {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-16px);
+            }
+        }
+
+        @keyframes orbMove {
+            0% {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+            100% {
+                transform: translate3d(30px, -35px, 0) scale(1.08);
+            }
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes kenburns {
+            0% {
+                transform: scale(1.02) translate(0, 0);
+            }
+            100% {
+                transform: scale(1.12) translate(-2%, -1%);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -120%;
+            }
+            45%,
+            100% {
+                left: 180%;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100 antialiased font-sans selection:bg-gold-500 selection:text-slate-950">
+    <nav id="mainNav" class="fixed inset-x-0 top-0 z-50 border-b border-slate-800/70 bg-slate-950/70 backdrop-blur-xl transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="h-20 flex items-center justify-between">
+                <a href="#start" class="flex items-center gap-3 group">
+                    <span class="w-10 h-10 rounded-full border border-gold-500/80 text-gold-400 flex items-center justify-center font-serif italic">M</span>
+                    <span class="font-serif text-lg tracking-wide text-white group-hover:text-gold-300 transition-colors">Instytut Meritum</span>
+                </a>
+
+                <button id="menuBtn" type="button" class="lg:hidden w-11 h-11 rounded-xl border border-slate-700 text-slate-100" aria-label="Otwórz menu">
+                    ☰
+                </button>
+
+                <div class="hidden lg:flex items-center gap-8 text-sm text-slate-300">
+                    <a href="#o-fundacji" class="hover:text-gold-300 transition-colors">O fundacji</a>
+                    <a href="#filary" class="hover:text-gold-300 transition-colors">Filary</a>
+                    <a href="#projekty" class="hover:text-gold-300 transition-colors">Projekty</a>
+                    <a href="#wplyw" class="hover:text-gold-300 transition-colors">Wpływ</a>
+                    <a href="#wsparcie" class="hover:text-gold-300 transition-colors">Wsparcie</a>
+                </div>
+
+                <button id="themeToggleDesktop" type="button" class="hidden lg:inline-flex items-center justify-center px-4 py-2.5 rounded-full border border-slate-700 text-sm font-medium text-slate-200 hover:border-gold-300 hover:text-gold-300 transition-colors">
+                    🌙 Tryb ciemny
+                </button>
+
+                <a href="#wsparcie" class="hidden lg:inline-flex px-5 py-2.5 rounded-full text-sm font-semibold text-slate-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:scale-[1.02] transition-transform shadow-[0_0_24px_rgba(212,175,55,0.35)]">
+                    Przekaż wsparcie
+                </a>
+            </div>
+
+            <div id="mobileMenu" class="lg:hidden max-h-0 overflow-hidden transition-all duration-300">
+                <div class="pb-5 grid gap-2 text-sm text-slate-300">
+                    <a href="#o-fundacji" class="py-2 px-3 rounded-lg hover:bg-slate-900">O fundacji</a>
+                    <a href="#filary" class="py-2 px-3 rounded-lg hover:bg-slate-900">Filary</a>
+                    <a href="#projekty" class="py-2 px-3 rounded-lg hover:bg-slate-900">Projekty</a>
+                    <a href="#wplyw" class="py-2 px-3 rounded-lg hover:bg-slate-900">Wpływ</a>
+                    <a href="#wsparcie" class="py-2 px-3 rounded-lg hover:bg-slate-900">Wsparcie</a>
+                    <button id="themeToggleMobile" type="button" class="mt-1 w-full py-2 px-3 rounded-lg border border-slate-700 text-left text-slate-200 hover:border-gold-300 hover:text-gold-300 transition-colors">
+                        🌙 Tryb ciemny
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="start" class="pt-24">
+        <section class="relative min-h-[92vh] aurora-bg overflow-hidden noise-overlay">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-20 relative z-10">
+                <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                    <div class="lg:col-span-6 reveal" style="--delay: 60ms">
+                        <span class="inline-flex items-center gap-2 rounded-full border border-gold-400/35 bg-gold-500/10 px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-gold-300">Fundacja premium · NIP 9292059570</span>
+                        <h1 class="mt-6 text-4xl sm:text-5xl lg:text-7xl font-serif leading-[1.04] text-white">
+                            Meritum wiedzy.<br />
+                            <span class="italic text-gold-300">Technologia dobra społecznego.</span>
+                        </h1>
+                        <p class="mt-6 max-w-2xl text-slate-300 text-base sm:text-lg leading-relaxed">
+                            Tworzymy badawczo-edukacyjny ekosystem wsparcia dla dzieci, rodzin i społeczności lokalnych. Łączymy naukę, empatię i nowoczesny design usług publicznych.
+                        </p>
+
+                        <div class="mt-10 flex flex-col sm:flex-row gap-4">
+                            <a href="#wsparcie" class="shimmer inline-flex justify-center px-8 py-4 rounded-full text-sm font-semibold text-slate-950 bg-gradient-to-r from-gold-300 to-gold-500 shadow-[0_0_36px_rgba(212,175,55,0.4)] hover:translate-y-[-2px] transition-transform">
+                                Zostań darczyńcą premium
+                            </a>
+                            <a href="#projekty" class="inline-flex justify-center px-8 py-4 rounded-full border border-slate-600 text-white hover:bg-slate-900/60 transition-colors">
+                                Zobacz projekty 2026
+                            </a>
+                        </div>
+
+                        <div class="mt-10 grid grid-cols-3 gap-3 max-w-xl">
+                            <div class="glass-card rounded-2xl p-4 reveal" style="--delay: 220ms">
+                                <p class="text-2xl font-serif"><span data-counter="640">0</span>+</p>
+                                <p class="text-xs text-slate-300 mt-1">rodzin objętych wsparciem</p>
+                            </div>
+                            <div class="glass-card rounded-2xl p-4 reveal" style="--delay: 300ms">
+                                <p class="text-2xl font-serif"><span data-counter="146">0</span></p>
+                                <p class="text-xs text-slate-300 mt-1">programów i badań</p>
+                            </div>
+                            <div class="glass-card rounded-2xl p-4 reveal" style="--delay: 380ms">
+                                <p class="text-2xl font-serif"><span data-counter="98">0</span>%</p>
+                                <p class="text-xs text-slate-300 mt-1">oceny satysfakcji</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-6 reveal" style="--delay: 140ms">
+                        <div class="hero-main rounded-[2rem] border border-slate-700/70 shadow-2xl shadow-slate-950/60 overflow-hidden" data-parallax="22">
+                            <img id="heroMainImage" src="assets/illustracje/dark/01_hero_glowny.png" data-asset="01_hero_glowny.png" alt="Główna ilustracja działań fundacji Meritum" class="w-full h-[420px] sm:h-[510px] object-cover kenburns" loading="eager" />
+                            <div class="absolute bottom-0 inset-x-0 p-6 z-10">
+                                <div class="glass-card rounded-2xl p-4 max-w-md">
+                                    <p class="text-xs uppercase tracking-[0.2em] text-gold-300">Program flagowy</p>
+                                    <h2 class="font-serif text-xl mt-1 text-white">Akademia Kompetencji Rodzinnych</h2>
+                                    <p class="text-slate-300 text-sm mt-2">Wsparcie psychologiczne + edukacja + mentoring kariery dla młodzieży.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-3 mt-4">
+                            <button class="hero-mini active rounded-2xl overflow-hidden float-soft" data-hero-asset="02_hero_miniatura_1.png" data-hero-src="assets/illustracje/dark/02_hero_miniatura_1.png" aria-label="Pokaż wariant 1">
+                                <img src="assets/illustracje/dark/02_hero_miniatura_1.png" data-asset="02_hero_miniatura_1.png" alt="Miniatura hero 1" class="w-full h-28 object-cover" loading="lazy" />
+                            </button>
+                            <button class="hero-mini rounded-2xl overflow-hidden float-soft-2" data-hero-asset="03_hero_miniatura_2.png" data-hero-src="assets/illustracje/dark/03_hero_miniatura_2.png" aria-label="Pokaż wariant 2">
+                                <img src="assets/illustracje/dark/03_hero_miniatura_2.png" data-asset="03_hero_miniatura_2.png" alt="Miniatura hero 2" class="w-full h-28 object-cover" loading="lazy" />
+                            </button>
+                            <button class="hero-mini rounded-2xl overflow-hidden float-soft" data-hero-asset="04_hero_miniatura_3.png" data-hero-src="assets/illustracje/dark/04_hero_miniatura_3.png" aria-label="Pokaż wariant 3">
+                                <img src="assets/illustracje/dark/04_hero_miniatura_3.png" data-asset="04_hero_miniatura_3.png" alt="Miniatura hero 3" class="w-full h-28 object-cover" loading="lazy" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="border-y border-slate-800 bg-slate-925/80 py-7 overflow-hidden">
+            <div class="marquee-track">
+                <div class="partner-pill px-5 py-2 rounded-full text-sm text-slate-200">Miasto Zielona Góra</div>
+                <div class="partner-pill px-5 py-2 rounded-full text-sm text-slate-200">Program Erasmus+</div>
+                <div class="partner-pill px-5 py-2 rounded-full text-sm text-slate-200">Regionalny Ośrodek Polityki Społecznej</div>
+                <div class="partner-pill px-5 py-2 rounded-full text-sm text-slate-200">Akademia WSB</div>
+                <div class="partner-pill px-5 py-2 rounded-full text-sm text-slate-200">Centrum Integracji Rodzin</div>
+                <div class="partner-pill px-5 py-2 rounded-full text-sm text-slate-200">Sektor CSR Partner+</div>
+                <div class="partner-pill px-5 py-2 rounded-full text-sm text-slate-200">Miasto Zielona Góra</div>
+                <div class="partner-pill px-5 py-2 rounded-full text-sm text-slate-200">Program Erasmus+</div>
+                <div class="partner-pill px-5 py-2 rounded-full text-sm text-slate-200">Regionalny Ośrodek Polityki Społecznej</div>
+                <div class="partner-pill px-5 py-2 rounded-full text-sm text-slate-200">Akademia WSB</div>
+                <div class="partner-pill px-5 py-2 rounded-full text-sm text-slate-200">Centrum Integracji Rodzin</div>
+                <div class="partner-pill px-5 py-2 rounded-full text-sm text-slate-200">Sektor CSR Partner+</div>
+            </div>
+        </section>
+
+        <section id="o-fundacji" class="py-24 bg-gradient-to-b from-slate-950 to-slate-900">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-12 gap-10 items-center">
+                <div class="lg:col-span-5 reveal">
+                    <p class="text-gold-300 text-xs uppercase tracking-[0.22em]">O fundacji</p>
+                    <h2 class="mt-4 text-3xl md:text-5xl font-serif text-white leading-tight">Projektujemy realną zmianę społeczną.</h2>
+                    <p class="mt-6 text-slate-300 leading-relaxed">
+                        Działamy interdyscyplinarnie: od badań jakościowych, przez projektowanie usług, po wdrożenia terenowe. Każde działanie opieramy o dane, etykę i skuteczność mierzoną długoterminowo.
+                    </p>
+                    <div class="mt-7 space-y-3 text-sm text-slate-300">
+                        <div class="flex gap-3"><span class="text-gold-300">✓</span> Transparentne raportowanie i dashboard efektów.</div>
+                        <div class="flex gap-3"><span class="text-gold-300">✓</span> Metodyka evidence-based i audyt jakości.</div>
+                        <div class="flex gap-3"><span class="text-gold-300">✓</span> Programy szyte pod lokalny kontekst społeczny.</div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 grid sm:grid-cols-2 gap-5">
+                    <article class="premium-border rounded-3xl bg-slate-925 p-4 border border-slate-800 reveal" style="--delay: 120ms" data-parallax="14">
+                        <img src="assets/illustracje/dark/05_o_fundacji.png" data-asset="05_o_fundacji.png" alt="Zespół fundacji podczas warsztatów" class="rounded-2xl w-full h-56 object-cover" loading="lazy" />
+                        <h3 class="mt-4 font-serif text-2xl text-white">Laboratorium edukacji</h3>
+                        <p class="text-slate-300 text-sm mt-2">Autorskie metody pracy z dziećmi, rodzicami i nauczycielami.</p>
+                    </article>
+                    <article class="premium-border rounded-3xl bg-slate-925 p-4 border border-slate-800 reveal" style="--delay: 210ms" data-parallax="10">
+                        <img src="assets/illustracje/dark/15_kontakt_cta.png" data-asset="15_kontakt_cta.png" alt="Spotkanie konsultacyjne fundacji" class="rounded-2xl w-full h-56 object-cover" loading="lazy" />
+                        <h3 class="mt-4 font-serif text-2xl text-white">Sieć partnerstw</h3>
+                        <p class="text-slate-300 text-sm mt-2">Samorządy, szkoły, biznes i organizacje lokalne współtworzące zmiany.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="filary" class="py-24 bg-slate-900">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="max-w-3xl reveal">
+                    <p class="text-gold-300 text-xs uppercase tracking-[0.22em]">Filary działań</p>
+                    <h2 class="font-serif text-3xl md:text-5xl mt-3">4 strategiczne obszary wpływu</h2>
+                </div>
+
+                <div class="mt-12 grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+                    <article class="tilt-card glass-card rounded-3xl p-4 reveal" style="--delay: 80ms">
+                        <img src="assets/illustracje/dark/06_filar_wsparcie.png" data-asset="06_filar_wsparcie.png" alt="Wsparcie społeczne" class="rounded-2xl h-44 w-full object-cover" loading="lazy" />
+                        <h3 class="font-serif text-2xl mt-4">Wsparcie społeczne</h3>
+                        <p class="text-slate-300 text-sm mt-2">Interwencja kryzysowa, konsultacje prawne i opieka psychologiczna.</p>
+                    </article>
+                    <article class="tilt-card glass-card rounded-3xl p-4 reveal" style="--delay: 140ms">
+                        <img src="assets/illustracje/dark/07_filar_edukacja.png" data-asset="07_filar_edukacja.png" alt="Edukacja rozwojowa" class="rounded-2xl h-44 w-full object-cover" loading="lazy" />
+                        <h3 class="font-serif text-2xl mt-4">Edukacja rozwojowa</h3>
+                        <p class="text-slate-300 text-sm mt-2">Programy kompetencji przyszłości, tutoring i mentoring młodzieży.</p>
+                    </article>
+                    <article class="tilt-card glass-card rounded-3xl p-4 reveal" style="--delay: 220ms">
+                        <img src="assets/illustracje/dark/08_filar_badania.png" data-asset="08_filar_badania.png" alt="Badania i analiza" class="rounded-2xl h-44 w-full object-cover" loading="lazy" />
+                        <h3 class="font-serif text-2xl mt-4">Badania i analiza</h3>
+                        <p class="text-slate-300 text-sm mt-2">Diagnozy lokalne, monitoring i rekomendacje dla polityk publicznych.</p>
+                    </article>
+                    <article class="tilt-card glass-card rounded-3xl p-4 reveal" style="--delay: 280ms">
+                        <img src="assets/illustracje/dark/09_filar_innowacje.png" data-asset="09_filar_innowacje.png" alt="Innowacje społeczne" class="rounded-2xl h-44 w-full object-cover" loading="lazy" />
+                        <h3 class="font-serif text-2xl mt-4">Innowacje społeczne</h3>
+                        <p class="text-slate-300 text-sm mt-2">Pilotaże technologii wsparcia i cyfrowe narzędzia dla rodzin.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="projekty" class="py-24 bg-slate-950">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row gap-6 md:items-end md:justify-between reveal">
+                    <div>
+                        <p class="text-gold-300 text-xs uppercase tracking-[0.22em]">Projekty premium</p>
+                        <h2 class="font-serif text-3xl md:text-5xl mt-3">Portfolio programów 2026</h2>
+                    </div>
+                    <p class="text-slate-300 max-w-2xl">Każdy projekt posiada metryki, harmonogram i mapę trwałości rezultatu po zakończeniu finansowania.</p>
+                </div>
+
+                <div class="mt-12 grid xl:grid-cols-3 gap-6">
+                    <article class="rounded-3xl overflow-hidden border border-slate-800 bg-slate-900 reveal" style="--delay: 80ms">
+                        <img src="assets/illustracje/dark/10_projekt_akademia.png" data-asset="10_projekt_akademia.png" alt="Projekt Akademia Kompetencji" class="h-56 w-full object-cover" loading="lazy" />
+                        <div class="p-6">
+                            <p class="text-gold-300 text-xs uppercase tracking-[0.2em]">Projekt 01</p>
+                            <h3 class="font-serif text-2xl mt-2">Akademia Kompetencji Rodzinnych</h3>
+                            <p class="text-slate-300 mt-3 text-sm">Ścieżki psychoedukacyjne i trening komunikacji dla rodzin w kryzysie.</p>
+                        </div>
+                    </article>
+
+                    <article class="rounded-3xl overflow-hidden border border-slate-800 bg-slate-900 reveal" style="--delay: 160ms">
+                        <img src="assets/illustracje/dark/11_projekt_centrum.png" data-asset="11_projekt_centrum.png" alt="Projekt Centrum Wsparcia" class="h-56 w-full object-cover" loading="lazy" />
+                        <div class="p-6">
+                            <p class="text-gold-300 text-xs uppercase tracking-[0.2em]">Projekt 02</p>
+                            <h3 class="font-serif text-2xl mt-2">Centrum Wsparcia Rodzin</h3>
+                            <p class="text-slate-300 mt-3 text-sm">Sieć specjalistów i szybkie ścieżki pomocy prawnej, społecznej i terapeutycznej.</p>
+                        </div>
+                    </article>
+
+                    <article class="rounded-3xl overflow-hidden border border-slate-800 bg-slate-900 reveal" style="--delay: 240ms">
+                        <img src="assets/illustracje/dark/12_projekt_laboratorium.png" data-asset="12_projekt_laboratorium.png" alt="Projekt Laboratorium Innowacji" class="h-56 w-full object-cover" loading="lazy" />
+                        <div class="p-6">
+                            <p class="text-gold-300 text-xs uppercase tracking-[0.2em]">Projekt 03</p>
+                            <h3 class="font-serif text-2xl mt-2">Laboratorium Innowacji Lokalnych</h3>
+                            <p class="text-slate-300 mt-3 text-sm">Rozwój prototypów usług publicznych opartych o dane i współpracę międzysektorową.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="wplyw" class="py-24 bg-gradient-to-b from-slate-900 to-slate-950">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-12 gap-10 items-start">
+                <div class="lg:col-span-5 reveal">
+                    <p class="text-gold-300 text-xs uppercase tracking-[0.22em]">Dashboard wpływu</p>
+                    <h2 class="font-serif text-3xl md:text-5xl mt-3">Wyniki mierzalne i publiczne</h2>
+                    <p class="text-slate-300 mt-6 leading-relaxed">Stosujemy monitorowanie postępu projektów i audyt jakości usług. Każdy KPI ma właściciela, okres pomiaru i plan utrzymania efektu.</p>
+                    <img src="assets/illustracje/dark/14_aktualnosc_raport.png" data-asset="14_aktualnosc_raport.png" alt="Ilustracja raportowania rezultatów" class="mt-7 rounded-3xl w-full h-64 object-cover border border-slate-800" loading="lazy" />
+                </div>
+
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="grid sm:grid-cols-3 gap-4 reveal" style="--delay: 120ms">
+                        <div class="glass-card rounded-2xl p-4">
+                            <p class="text-sm text-slate-300">Liczba uczestników</p>
+                            <p class="font-serif text-4xl mt-2"><span data-counter="3210">0</span></p>
+                        </div>
+                        <div class="glass-card rounded-2xl p-4">
+                            <p class="text-sm text-slate-300">Partnerstwa lokalne</p>
+                            <p class="font-serif text-4xl mt-2"><span data-counter="74">0</span></p>
+                        </div>
+                        <div class="glass-card rounded-2xl p-4">
+                            <p class="text-sm text-slate-300">Skuteczność interwencji</p>
+                            <p class="font-serif text-4xl mt-2"><span data-counter="89">0</span>%</p>
+                        </div>
+                    </div>
+
+                    <div class="rounded-3xl border border-slate-800 bg-slate-925/80 p-6 reveal" style="--delay: 180ms">
+                        <h3 class="font-serif text-2xl mb-5">Postęp strategiczny 2026</h3>
+                        <div class="space-y-5">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1"><span>Edukacja i mentoring</span><span>92%</span></div>
+                                <div class="h-2 rounded-full bg-slate-800"><div class="progress-fill h-full rounded-full bg-gradient-to-r from-gold-400 to-gold-500" data-progress="92"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1"><span>Wsparcie rodzin</span><span>87%</span></div>
+                                <div class="h-2 rounded-full bg-slate-800"><div class="progress-fill h-full rounded-full bg-gradient-to-r from-emerald-400 to-teal-500" data-progress="87"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1"><span>Programy badawcze</span><span>79%</span></div>
+                                <div class="h-2 rounded-full bg-slate-800"><div class="progress-fill h-full rounded-full bg-gradient-to-r from-indigo-400 to-violet-500" data-progress="79"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-4 reveal" style="--delay: 240ms">
+                        <div class="glass-card rounded-2xl p-5 text-center">
+                            <div class="mx-auto w-20 h-20 p-[5px] rounded-full kpi-ring" style="--progress: 82%">
+                                <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-sm">82%</div>
+                            </div>
+                            <p class="mt-3 text-sm text-slate-300">Retencja uczestników</p>
+                        </div>
+                        <div class="glass-card rounded-2xl p-5 text-center">
+                            <div class="mx-auto w-20 h-20 p-[5px] rounded-full kpi-ring" style="--progress: 91%">
+                                <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-sm">91%</div>
+                            </div>
+                            <p class="mt-3 text-sm text-slate-300">Zgodność jakościowa</p>
+                        </div>
+                        <div class="glass-card rounded-2xl p-5 text-center">
+                            <div class="mx-auto w-20 h-20 p-[5px] rounded-full kpi-ring" style="--progress: 95%">
+                                <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-sm">95%</div>
+                            </div>
+                            <p class="mt-3 text-sm text-slate-300">Transparentność finansowa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-slate-900">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="reveal">
+                    <p class="text-gold-300 text-xs uppercase tracking-[0.22em]">Roadmapa</p>
+                    <h2 class="font-serif text-3xl md:text-5xl mt-3">Kamienie milowe i harmonogram wdrożeń</h2>
+                </div>
+                <div class="mt-10 grid md:grid-cols-4 gap-5">
+                    <div class="glass-card rounded-2xl p-5 reveal" style="--delay: 70ms">
+                        <p class="text-gold-300 font-semibold">Q1</p>
+                        <h3 class="font-serif text-xl mt-2">Diagnoza regionalna</h3>
+                        <p class="text-slate-300 text-sm mt-2">Mapowanie potrzeb 8 gmin i wywiady pogłębione.</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-5 reveal" style="--delay: 120ms">
+                        <p class="text-gold-300 font-semibold">Q2</p>
+                        <h3 class="font-serif text-xl mt-2">Pilotaż programów</h3>
+                        <p class="text-slate-300 text-sm mt-2">Uruchomienie 3 ścieżek wsparcia rodzin i szkół.</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-5 reveal" style="--delay: 180ms">
+                        <p class="text-gold-300 font-semibold">Q3</p>
+                        <h3 class="font-serif text-xl mt-2">Skalowanie modelu</h3>
+                        <p class="text-slate-300 text-sm mt-2">Integracja nowych partnerów samorządowych i CSR.</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-5 reveal" style="--delay: 230ms">
+                        <p class="text-gold-300 font-semibold">Q4</p>
+                        <h3 class="font-serif text-xl mt-2">Raport impact</h3>
+                        <p class="text-slate-300 text-sm mt-2">Publikacja wyników, audyt i plan utrzymania efektów.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="wsparcie" class="py-24 bg-slate-950">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="grid lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 reveal">
+                        <img src="assets/illustracje/dark/13_wsparcie_darowizny.png" data-asset="13_wsparcie_darowizny.png" alt="Wspieranie działań fundacji" class="rounded-[2rem] border border-slate-800 w-full h-[420px] object-cover" loading="lazy" />
+                    </div>
+                    <div class="lg:col-span-5 reveal" style="--delay: 120ms">
+                        <p class="text-gold-300 text-xs uppercase tracking-[0.22em]">Wesprzyj nas</p>
+                        <h2 class="font-serif text-3xl md:text-5xl mt-3">Finansuj rozwiązania, które działają</h2>
+                        <p class="text-slate-300 mt-5">Każda darowizna zasila konkretną ścieżkę wsparcia. Raportujemy wykorzystanie środków oraz rezultaty każdego programu.</p>
+
+                        <div class="mt-7 grid gap-3">
+                            <div class="glass-card rounded-2xl p-4 flex items-center justify-between">
+                                <div>
+                                    <p class="font-semibold">Pakiet START</p>
+                                    <p class="text-xs text-slate-300">120 zł / mies.</p>
+                                </div>
+                                <button class="px-4 py-2 rounded-full bg-gold-500 text-slate-950 text-sm font-semibold hover:bg-gold-400">Wspieram</button>
+                            </div>
+                            <div class="glass-card rounded-2xl p-4 flex items-center justify-between border border-gold-400/45">
+                                <div>
+                                    <p class="font-semibold">Pakiet IMPACT</p>
+                                    <p class="text-xs text-slate-300">350 zł / mies.</p>
+                                </div>
+                                <button class="px-4 py-2 rounded-full bg-gold-500 text-slate-950 text-sm font-semibold hover:bg-gold-400">Wspieram</button>
+                            </div>
+                            <div class="glass-card rounded-2xl p-4 flex items-center justify-between">
+                                <div>
+                                    <p class="font-semibold">Pakiet PARTNER</p>
+                                    <p class="text-xs text-slate-300">od 1000 zł / mies.</p>
+                                </div>
+                                <button class="px-4 py-2 rounded-full bg-gold-500 text-slate-950 text-sm font-semibold hover:bg-gold-400">Wspieram</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-slate-900">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row gap-6 justify-between items-end reveal">
+                    <div>
+                        <p class="text-gold-300 text-xs uppercase tracking-[0.22em]">Aktualności</p>
+                        <h2 class="font-serif text-3xl md:text-5xl mt-3">Co nowego w Meritum</h2>
+                    </div>
+                    <a href="#" class="text-sm text-gold-300 hover:text-gold-200">Zobacz wszystkie wpisy →</a>
+                </div>
+
+                <div class="mt-12 grid md:grid-cols-3 gap-6">
+                    <article class="rounded-3xl border border-slate-800 bg-slate-925 overflow-hidden reveal" style="--delay: 80ms">
+                        <img src="assets/illustracje/dark/14_aktualnosc_raport.png" data-asset="14_aktualnosc_raport.png" alt="Nowy raport fundacji" class="w-full h-52 object-cover" loading="lazy" />
+                        <div class="p-6">
+                            <p class="text-xs text-gold-300">04.2026 · Raport</p>
+                            <h3 class="font-serif text-2xl mt-2">Opublikowaliśmy raport impact 2025</h3>
+                        </div>
+                    </article>
+                    <article class="rounded-3xl border border-slate-800 bg-slate-925 overflow-hidden reveal" style="--delay: 160ms">
+                        <img src="assets/illustracje/dark/11_projekt_centrum.png" data-asset="11_projekt_centrum.png" alt="Otwarcie centrum wsparcia" class="w-full h-52 object-cover" loading="lazy" />
+                        <div class="p-6">
+                            <p class="text-xs text-gold-300">03.2026 · Wydarzenie</p>
+                            <h3 class="font-serif text-2xl mt-2">Start Centrum Wsparcia Rodzin</h3>
+                        </div>
+                    </article>
+                    <article class="rounded-3xl border border-slate-800 bg-slate-925 overflow-hidden reveal" style="--delay: 240ms">
+                        <img src="assets/illustracje/dark/12_projekt_laboratorium.png" data-asset="12_projekt_laboratorium.png" alt="Warsztaty innowacji" class="w-full h-52 object-cover" loading="lazy" />
+                        <div class="p-6">
+                            <p class="text-xs text-gold-300">02.2026 · Program</p>
+                            <h3 class="font-serif text-2xl mt-2">Laboratorium Innowacji ruszyło w 4 gminach</h3>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-slate-950">
+            <div class="max-w-5xl mx-auto px-6 lg:px-8">
+                <div class="text-center reveal">
+                    <p class="text-gold-300 text-xs uppercase tracking-[0.22em]">FAQ</p>
+                    <h2 class="font-serif text-3xl md:text-5xl mt-3">Najczęstsze pytania partnerów i darczyńców</h2>
+                </div>
+
+                <div class="mt-12 space-y-4">
+                    <article class="faq-item rounded-2xl border border-slate-800 bg-slate-925 reveal" style="--delay: 60ms">
+                        <button class="w-full text-left px-6 py-5 flex justify-between items-center" aria-expanded="false">
+                            <span class="font-medium">W jaki sposób raportujecie wykorzystanie darowizn?</span>
+                            <span class="text-gold-300">+</span>
+                        </button>
+                        <div class="faq-content px-6">
+                            <div class="pb-5 text-slate-300 text-sm">Prowadzimy kwartalne raporty KPI, dashboard finansowy i roczne podsumowanie audytowane przez zewnętrznych ekspertów.</div>
+                        </div>
+                    </article>
+
+                    <article class="faq-item rounded-2xl border border-slate-800 bg-slate-925 reveal" style="--delay: 120ms">
+                        <button class="w-full text-left px-6 py-5 flex justify-between items-center" aria-expanded="false">
+                            <span class="font-medium">Czy realizujecie projekty z partnerami biznesowymi (CSR)?</span>
+                            <span class="text-gold-300">+</span>
+                        </button>
+                        <div class="faq-content px-6">
+                            <div class="pb-5 text-slate-300 text-sm">Tak, projektujemy dedykowane programy CSR z mapą celu społecznego i transparentnym monitoringiem rezultatów.</div>
+                        </div>
+                    </article>
+
+                    <article class="faq-item rounded-2xl border border-slate-800 bg-slate-925 reveal" style="--delay: 180ms">
+                        <button class="w-full text-left px-6 py-5 flex justify-between items-center" aria-expanded="false">
+                            <span class="font-medium">Jak wygląda proces uruchomienia programu lokalnego?</span>
+                            <span class="text-gold-300">+</span>
+                        </button>
+                        <div class="faq-content px-6">
+                            <div class="pb-5 text-slate-300 text-sm">Startujemy od diagnozy potrzeb, następnie tworzymy pilotaż i plan skalowania. Każdy etap ma mierzalne wskaźniki i odpowiedzialne zespoły.</div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontakt" class="py-24 bg-gradient-to-r from-gold-700 via-gold-600 to-gold-500 text-slate-950">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-8 reveal">
+                    <p class="text-xs uppercase tracking-[0.22em] text-slate-900/80">Partnerstwo i kontakt</p>
+                    <h2 class="font-serif text-3xl md:text-5xl mt-3">Dołącz do koalicji dla równego startu.</h2>
+                    <p class="mt-4 text-slate-900/80 max-w-3xl">Skontaktuj się z zespołem fundacji i zaprojektujmy wspólnie program o realnym, mierzalnym wpływie społecznym.</p>
+                </div>
+                <div class="lg:col-span-4 reveal" style="--delay: 120ms">
+                    <a href="mailto:kontakt@fundacjameritum.pl" class="w-full inline-flex justify-center px-8 py-4 rounded-2xl bg-slate-950 text-white font-semibold hover:bg-slate-900 transition-colors">kontakt@fundacjameritum.pl</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-950 border-t border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-3 text-white font-serif text-xl">
+                        <span class="w-10 h-10 rounded-full border border-gold-500 text-gold-400 flex items-center justify-center italic">M</span>
+                        Instytut Badawczo-Edukacyjny Meritum
+                    </div>
+                    <p class="mt-4 text-slate-400 max-w-md">Projektujemy rozwiązania społeczne premium: skuteczne, skalowalne i transparentne.</p>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold mb-3">Dane</h3>
+                    <ul class="text-sm text-slate-400 space-y-2">
+                        <li>NIP: 9292059570</li>
+                        <li>KRS: 0000888222</li>
+                        <li>REGON: 388382819</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold mb-3">Adres</h3>
+                    <ul class="text-sm text-slate-400 space-y-2">
+                        <li>ul. Sowia 9</li>
+                        <li>65-507 Zielona Góra</li>
+                        <li>Polska</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-10 pt-6 border-t border-slate-800 text-xs text-slate-500 flex flex-col sm:flex-row justify-between gap-3">
+                <p>© <span id="year"></span> Fundacja Meritum. Wszelkie prawa zastrzeżone.</p>
+                <div class="flex gap-5">
+                    <a href="#" class="hover:text-slate-300">Polityka prywatności</a>
+                    <a href="#" class="hover:text-slate-300">Raporty finansowe</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile menu
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                const isOpen = mobileMenu.style.maxHeight && mobileMenu.style.maxHeight !== '0px';
+                mobileMenu.style.maxHeight = isOpen ? '0px' : `${mobileMenu.scrollHeight}px`;
+                menuBtn.textContent = isOpen ? '☰' : '✕';
+            });
+        }
+
+        // Navbar style on scroll
+        const nav = document.getElementById('mainNav');
+        const updateNav = () => {
+            if (window.scrollY > 24) {
+                nav.classList.add('shadow-xl', 'shadow-slate-950/35', 'border-slate-700/70');
+            } else {
+                nav.classList.remove('shadow-xl', 'shadow-slate-950/35', 'border-slate-700/70');
+            }
+        };
+        updateNav();
+        window.addEventListener('scroll', updateNav, { passive: true });
+
+        // Reveal animations
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.14 });
+        revealElements.forEach((el) => revealObserver.observe(el));
+
+        // Counter animations
+        const animateCounter = (element, target) => {
+            if (prefersReducedMotion) {
+                element.textContent = target;
+                return;
+            }
+            let current = 0;
+            const duration = 1400;
+            const startTime = performance.now();
+            const step = (time) => {
+                const progress = Math.min((time - startTime) / duration, 1);
+                current = Math.floor(progress * target);
+                element.textContent = current;
+                if (progress < 1) requestAnimationFrame(step);
+                else element.textContent = target;
+            };
+            requestAnimationFrame(step);
+        };
+
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                const counters = entry.target.querySelectorAll('[data-counter]');
+                counters.forEach((counter) => {
+                    const target = Number(counter.dataset.counter || 0);
+                    animateCounter(counter, target);
+                });
+                observer.unobserve(entry.target);
+            });
+        }, { threshold: 0.25 });
+
+        document.querySelectorAll('section').forEach((section) => {
+            if (section.querySelector('[data-counter]')) {
+                counterObserver.observe(section);
+            }
+        });
+
+        // Progress bars
+        const progressObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.querySelectorAll('.progress-fill').forEach((bar) => {
+                    bar.style.width = `${bar.dataset.progress || 0}%`;
+                });
+                observer.unobserve(entry.target);
+            });
+        }, { threshold: 0.25 });
+        const progressSection = document.getElementById('wplyw');
+        if (progressSection) progressObserver.observe(progressSection);
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-item button').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const isOpen = btn.getAttribute('aria-expanded') === 'true';
+                document.querySelectorAll('.faq-item button').forEach((otherBtn) => {
+                    otherBtn.setAttribute('aria-expanded', 'false');
+                    const sign = otherBtn.querySelector('span:last-child');
+                    if (sign) sign.textContent = '+';
+                });
+                btn.setAttribute('aria-expanded', String(!isOpen));
+                const sign = btn.querySelector('span:last-child');
+                if (sign) sign.textContent = isOpen ? '+' : '−';
+            });
+        });
+
+        // Hero mini gallery (manual + autoplay)
+        const heroMainImage = document.getElementById('heroMainImage');
+        const heroButtons = [...document.querySelectorAll('.hero-mini')];
+        let heroIndex = 0;
+
+        const setHeroImage = (index) => {
+            if (!heroMainImage || !heroButtons[index]) return;
+            const src = heroButtons[index].dataset.heroSrc;
+            heroMainImage.style.opacity = 0.55;
+            setTimeout(() => {
+                heroMainImage.src = src;
+                heroMainImage.style.opacity = 1;
+            }, 180);
+            heroButtons.forEach((btn) => btn.classList.remove('active'));
+            heroButtons[index].classList.add('active');
+            heroIndex = index;
+        };
+
+        heroButtons.forEach((btn, index) => {
+            btn.addEventListener('click', () => setHeroImage(index));
+        });
+
+        if (!prefersReducedMotion && heroButtons.length > 1) {
+            setInterval(() => {
+                const nextIndex = (heroIndex + 1) % heroButtons.length;
+                setHeroImage(nextIndex);
+            }, 5200);
+        }
+
+        // Parallax effect
+        if (!prefersReducedMotion) {
+            const parallaxElements = document.querySelectorAll('[data-parallax]');
+            let pointerX = 0;
+            let pointerY = 0;
+            let rafId = null;
+
+            const renderParallax = () => {
+                parallaxElements.forEach((element) => {
+                    const depth = Number(element.dataset.parallax || 10);
+                    const moveX = (pointerX - window.innerWidth / 2) / window.innerWidth;
+                    const moveY = (pointerY - window.innerHeight / 2) / window.innerHeight;
+                    element.style.transform = `translate3d(${moveX * depth}px, ${moveY * depth}px, 0)`;
+                });
+                rafId = null;
+            };
+
+            window.addEventListener('pointermove', (event) => {
+                pointerX = event.clientX;
+                pointerY = event.clientY;
+                if (!rafId) rafId = requestAnimationFrame(renderParallax);
+            });
+
+            // 3D tilt for cards
+            document.querySelectorAll('.tilt-card').forEach((card) => {
+                card.addEventListener('pointermove', (event) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = event.clientX - rect.left;
+                    const y = event.clientY - rect.top;
+                    const rotateX = ((y / rect.height) - 0.5) * -8;
+                    const rotateY = ((x / rect.width) - 0.5) * 8;
+                    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+                card.addEventListener('pointerleave', () => {
+                    card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+                });
+            });
+        }
+    </script>
+</body>
+</html>

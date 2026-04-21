@@ -1,0 +1,67 @@
+[
+  {
+    "filename": "01_hero_glowny.png",
+    "title": "Hero główny",
+    "path": "assets/illustracje/01_hero_glowny.png",
+    "seed": 89113415,
+    "width": 1536,
+    "height": 960,
+    "steps": 22,
+    "cfg_scale": 6.5,
+    "sampler_name": "Euler",
+    "negative_prompt": "text, logo, watermark, blurry, low quality, artifacts, deformed face, distorted hands, oversaturated colors, uncanny expressions",
+    "prompt": "panoramic scene of a foundation strategy meeting, bright elegant interior with large windows, 4-6 professionals discussing at a large table with laptop, notebooks, documents and coffee cups, bookshelves and plants subtly visible in background, natural candid body language, wide composition with negative space for headline, nonprofit foundation environment, modern social impact organization, premium editorial photography, realistic, natural cinematic light, high detail, authentic emotions, elegant composition, color palette: warm white, soft beige, light taupe, sage green accents"
+  },
+  {
+    "filename": "02_filar_edukacja_rozwoj.png",
+    "title": "Filar: edukacja i rozwój",
+    "path": "assets/illustracje/02_filar_edukacja_rozwoj.png",
+    "seed": 3369333006,
+    "width": 1440,
+    "height": 960,
+    "steps": 22,
+    "cfg_scale": 6.5,
+    "sampler_name": "Euler",
+    "negative_prompt": "text, logo, watermark, blurry, low quality, artifacts, deformed face, distorted hands, oversaturated colors, uncanny expressions",
+    "prompt": "modern educational workshop in a bright training room, 8-12 participants of mixed ages, laptops, notebooks and educational materials on desks, facilitator near large screen with unreadable content, documentary premium style, collaborative atmosphere, nonprofit foundation environment, modern social impact organization, premium editorial photography, realistic, natural cinematic light, high detail, authentic emotions, elegant composition, color palette: warm white, soft beige, light taupe, sage green accents"
+  },
+  {
+    "filename": "03_filar_badania_diagnoza.png",
+    "title": "Filar: badania i diagnoza potrzeb",
+    "path": "assets/illustracje/03_filar_badania_diagnoza.png",
+    "seed": 4223723858,
+    "width": 1440,
+    "height": 960,
+    "steps": 22,
+    "cfg_scale": 6.5,
+    "sampler_name": "Euler",
+    "negative_prompt": "text, logo, watermark, blurry, low quality, artifacts, deformed face, distorted hands, oversaturated colors, uncanny expressions",
+    "prompt": "editorial top-angle photo of research team desk, anonymous charts, maps, sticky notes and tablet with neutral analytics UI, 3-4 people partially visible by hands and silhouettes, strategic think-tank social analysis mood, soft professional light, nonprofit foundation environment, modern social impact organization, premium editorial photography, realistic, natural cinematic light, high detail, authentic emotions, elegant composition, color palette: warm white, soft beige, light taupe, sage green accents"
+  },
+  {
+    "filename": "04_filar_wolontariat.png",
+    "title": "Filar: aktywność społeczna i wolontariat",
+    "path": "assets/illustracje/04_filar_wolontariat.png",
+    "seed": 936338524,
+    "width": 1440,
+    "height": 960,
+    "steps": 22,
+    "cfg_scale": 6.5,
+    "sampler_name": "Euler",
+    "negative_prompt": "text, logo, watermark, blurry, low quality, artifacts, deformed face, distorted hands, oversaturated colors, uncanny expressions",
+    "prompt": "authentic volunteer group in urban community setting, 6-10 diverse people in neat casual clothes, organizing materials on information table and talking with local residents, modern library or cultural center background, warm afternoon light, reportage premium style, nonprofit foundation environment, modern social impact organization, premium editorial photography, realistic, natural cinematic light, high detail, authentic emotions, elegant composition, color palette: warm white, soft beige, light taupe, sage green accents"
+  },
+  {
+    "filename": "05_kontakt_cta.png",
+    "title": "Kontakt CTA",
+    "path": "assets/illustracje/05_kontakt_cta.png",
+    "seed": 3455852721,
+    "width": 1440,
+    "height": 960,
+    "steps": 22,
+    "cfg_scale": 6.5,
+    "sampler_name": "Euler",
+    "negative_prompt": "text, logo, watermark, blurry, low quality, artifacts, deformed face, distorted hands, oversaturated colors, uncanny expressions",
+    "prompt": "premium social consultation scene, two foundation representatives meeting local residents, clean modern community interior, empathetic conversation, trustworthy atmosphere, cinematic natural light, elegant yet authentic framing, nonprofit foundation environment, modern social impact organization, premium editorial photography, realistic, natural cinematic light, high detail, authentic emotions, elegant composition, color palette: warm white, soft beige, light taupe, sage green accents"
+  }
+]

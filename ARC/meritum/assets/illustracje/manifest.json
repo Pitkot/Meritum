@@ -1,0 +1,206 @@
+{
+  "project": "MERITUM premium homepage illustration library",
+  "generated_at": "2026-04-19T23:21:29",
+  "api": "http://192.168.1.10:7891/sdapi/v1/txt2img",
+  "count": 22,
+  "assets": [
+    {
+      "file": "assets/illustracje/01_hero_glowny.png",
+      "section": "hero",
+      "usage": "Główna ilustracja sekcji otwarcia",
+      "alt": "Uczestnicy projektu fundacji podczas warsztatów edukacyjnych w nowoczesnej przestrzeni",
+      "width": 768,
+      "height": 512,
+      "prompt": "diverse adults and youth during an educational workshop, community tables, notebooks, mentoring atmosphere"
+    },
+    {
+      "file": "assets/illustracje/02_hero_miniatura_1.png",
+      "section": "hero",
+      "usage": "Miniatura hero 1",
+      "alt": "Mentorka prowadząca zajęcia rozwojowe dla małej grupy uczestników",
+      "width": 768,
+      "height": 576,
+      "prompt": "mentor speaking with small group, close interaction, trust and engagement"
+    },
+    {
+      "file": "assets/illustracje/03_hero_miniatura_2.png",
+      "section": "hero",
+      "usage": "Miniatura hero 2",
+      "alt": "Spotkanie partnerów społecznych i samorządowych przy wspólnym stole",
+      "width": 768,
+      "height": 576,
+      "prompt": "formal partnership meeting between NGO and local institutions, documents on table, collaborative atmosphere"
+    },
+    {
+      "file": "assets/illustracje/04_hero_miniatura_3.png",
+      "section": "hero",
+      "usage": "Miniatura hero 3",
+      "alt": "Działania terenowe fundacji z udziałem mieszkańców",
+      "width": 768,
+      "height": 576,
+      "prompt": "outdoor community activity, participants cooperating in local public space, social impact mood"
+    },
+    {
+      "file": "assets/illustracje/05_filar_edukacja_rozwoj.png",
+      "section": "misja",
+      "usage": "Karta filaru: edukacja",
+      "alt": "Symboliczna scena edukacji i rozwoju kompetencji",
+      "width": 640,
+      "height": 640,
+      "prompt": "education concept scene, workshop tools, learning materials, people collaborating"
+    },
+    {
+      "file": "assets/illustracje/06_filar_integracja_wsparcie.png",
+      "section": "misja",
+      "usage": "Karta filaru: integracja",
+      "alt": "Symboliczna scena integracji społecznej i wzajemnego wsparcia",
+      "width": 640,
+      "height": 640,
+      "prompt": "social inclusion concept, multigenerational group, empathy, support, inclusive environment"
+    },
+    {
+      "file": "assets/illustracje/07_filar_zdrowie_innowacje.png",
+      "section": "misja",
+      "usage": "Karta filaru: zdrowie i innowacje",
+      "alt": "Symboliczna scena zdrowia, innowacji i partnerstw",
+      "width": 640,
+      "height": 640,
+      "prompt": "health and innovation concept, experts discussing strategy, modern community lab environment"
+    },
+    {
+      "file": "assets/illustracje/08_projekt_akademia_kompetencji.png",
+      "section": "projekty",
+      "usage": "Karta projektu: Akademia Kompetencji Lokalnych",
+      "alt": "Uczestnicy programu kompetencyjnego podczas praktycznych zajęć",
+      "width": 768,
+      "height": 512,
+      "prompt": "local skills academy training session, participants practicing practical tasks, optimistic mood"
+    },
+    {
+      "file": "assets/illustracje/09_projekt_centrum_wsparcia.png",
+      "section": "projekty",
+      "usage": "Karta projektu: Centrum Wsparcia i Integracji",
+      "alt": "Centrum wsparcia z konsultacjami i działaniami integracyjnymi",
+      "width": 768,
+      "height": 512,
+      "prompt": "community support center, counseling and integration activities, welcoming interior"
+    },
+    {
+      "file": "assets/illustracje/10_projekt_laboratorium_innowacji.png",
+      "section": "projekty",
+      "usage": "Karta projektu: Laboratorium Innowacji Społecznych",
+      "alt": "Zespół testujący innowacyjne rozwiązania społeczne",
+      "width": 768,
+      "height": 512,
+      "prompt": "social innovation lab, interdisciplinary team brainstorming prototypes and service ideas"
+    },
+    {
+      "file": "assets/illustracje/11_wplyw_uczestnicy.png",
+      "section": "wplyw",
+      "usage": "Moduł danych: uczestnicy",
+      "alt": "Wizualizacja wpływu fundacji na uczestników programów",
+      "width": 768,
+      "height": 576,
+      "prompt": "data-inspired scene with people silhouettes and abstract charts, social impact visualization"
+    },
+    {
+      "file": "assets/illustracje/12_wplyw_partnerstwa.png",
+      "section": "wplyw",
+      "usage": "Moduł danych: partnerstwa",
+      "alt": "Wizualizacja skali partnerstw i współpracy",
+      "width": 768,
+      "height": 576,
+      "prompt": "partnership network concept, connected nodes, professionals shaking hands, abstract data overlay"
+    },
+    {
+      "file": "assets/illustracje/13_wplyw_rezultaty.png",
+      "section": "wplyw",
+      "usage": "Moduł danych: rezultaty",
+      "alt": "Wizualizacja kluczowych rezultatów i wskaźników społecznych",
+      "width": 768,
+      "height": 576,
+      "prompt": "results dashboard concept, clean infographics mood, strong measurable outcomes"
+    },
+    {
+      "file": "assets/illustracje/14_wsparcie_darowizny.png",
+      "section": "darowizny",
+      "usage": "Ilustracja sekcji wsparcia",
+      "alt": "Subtelna scena wsparcia fundacji przez darczyńców i partnerów",
+      "width": 768,
+      "height": 512,
+      "prompt": "donation and partnership concept, respectful professional tone, helping hands and planning documents"
+    },
+    {
+      "file": "assets/illustracje/15_aktualnosc_kwiecien.png",
+      "section": "aktualnosci",
+      "usage": "Karta aktualności: kwiecień",
+      "alt": "Zdjęcie redakcyjne ilustrujące start programu szkoleniowego",
+      "width": 768,
+      "height": 512,
+      "prompt": "launch of new training program, opening event with audience and presenter"
+    },
+    {
+      "file": "assets/illustracje/16_aktualnosc_marzec.png",
+      "section": "aktualnosci",
+      "usage": "Karta aktualności: marzec",
+      "alt": "Zdjęcie redakcyjne dotyczące naboru partnerów",
+      "width": 768,
+      "height": 512,
+      "prompt": "announcement event for partner recruitment, formal networking scene"
+    },
+    {
+      "file": "assets/illustracje/17_aktualnosc_luty.png",
+      "section": "aktualnosci",
+      "usage": "Karta aktualności: luty",
+      "alt": "Zdjęcie redakcyjne prezentujące publikację raportu fundacji",
+      "width": 768,
+      "height": 512,
+      "prompt": "report publication event, people reviewing printed report and presentation board"
+    },
+    {
+      "file": "assets/illustracje/18_dokument_statut.png",
+      "section": "transparentnosc",
+      "usage": "Karta dokumentu: statut",
+      "alt": "Elegancka ilustracja dokumentu statutowego fundacji",
+      "width": 640,
+      "height": 640,
+      "prompt": "official statute document on premium desk, legal and trustworthy atmosphere"
+    },
+    {
+      "file": "assets/illustracje/19_dokument_sprawozdania.png",
+      "section": "transparentnosc",
+      "usage": "Karta dokumentu: sprawozdania",
+      "alt": "Elegancka ilustracja sprawozdań i dokumentów formalnych",
+      "width": 640,
+      "height": 640,
+      "prompt": "annual reports and formal documents neatly arranged, institutional style"
+    },
+    {
+      "file": "assets/illustracje/20_dokument_rodo.png",
+      "section": "transparentnosc",
+      "usage": "Karta dokumentu: RODO",
+      "alt": "Elegancka ilustracja polityki prywatności i ochrony danych",
+      "width": 640,
+      "height": 640,
+      "prompt": "privacy policy and data protection concept, secure lock and documents, professional aesthetics"
+    },
+    {
+      "file": "assets/illustracje/21_dokument_wspolpraca.png",
+      "section": "transparentnosc",
+      "usage": "Karta dokumentu: zasady współpracy",
+      "alt": "Elegancka ilustracja zasad współpracy z partnerami i darczyńcami",
+      "width": 640,
+      "height": 640,
+      "prompt": "partnership guidelines document, formal agreement theme, institutional trust"
+    },
+    {
+      "file": "assets/illustracje/22_kontakt_cta.png",
+      "section": "kontakt",
+      "usage": "Ilustracja końcowej sekcji CTA",
+      "alt": "Profesjonalny zespół fundacji gotowy do współpracy",
+      "width": 768,
+      "height": 512,
+      "prompt": "professional foundation team in office, welcoming communication and cooperation mood"
+    }
+  ]
+}
