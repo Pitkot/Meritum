@@ -28,3 +28,28 @@ const observer = new IntersectionObserver(
 );
 
 document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+const THEME_STORAGE_KEY = 'meritum-theme';
+const themeButtons = document.querySelectorAll('.theme-btn');
+const allowedThemes = ['royal-sapphire', 'wcag-22'];
+
+const setTheme = (theme) => {
+  if (!allowedThemes.includes(theme)) return;
+  document.body.setAttribute('data-theme', theme);
+  localStorage.setItem(THEME_STORAGE_KEY, theme);
+
+  themeButtons.forEach((button) => {
+    const isActive = button.dataset.theme === theme;
+    button.classList.toggle('is-active', isActive);
+    button.setAttribute('aria-pressed', String(isActive));
+  });
+};
+
+const initialTheme = localStorage.getItem(THEME_STORAGE_KEY) || 'royal-sapphire';
+setTheme(initialTheme);
+
+themeButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    setTheme(button.dataset.theme);
+  });
+});
