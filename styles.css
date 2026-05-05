@@ -281,11 +281,42 @@ p {
 
 .card,
 .impact-card {
+  position: relative;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: var(--shadow);
+}
+
+.card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.card > div,
+.card > img {
+  position: relative;
+  z-index: 2;
+}
+
+.card h3 a,
+.card p a {
+  position: relative;
+  z-index: 3;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-2px);
+  transition: transform 0.22s ease;
+}
+
+.card-link:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: -2px;
+  border-radius: 1rem;
 }
 
 .card img,
@@ -372,6 +403,31 @@ p {
   position: relative;
   z-index: 2;
   max-width: 650px;
+}
+
+.contact-identity {
+  margin: 1rem 0 0.9rem;
+  padding: 1rem 1.05rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.contact-name {
+  margin: 0 0 0.35rem;
+  color: #ffffff;
+  font-size: 1.06rem;
+  font-weight: 800;
+}
+
+.contact-address {
+  margin: 0;
+  color: #e8f0ff;
+  font-weight: 600;
+}
+
+.contact-registry {
+  margin-top: 0.4rem;
 }
 
 .cta-buttons {
